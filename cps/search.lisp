@@ -1,4 +1,4 @@
-‘;; -*- Mode: Lisp; -*-
+;;; -*- Mode: Lisp; -*-
 
 ;;; CPS, the Classical Problem Solver
 ;;; Last Edited: 1/29/93, by KDF
