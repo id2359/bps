@@ -1,0 +1,40 @@
+------------------------------------------------------------------------
+COMPATIBILITY NOTES
+------------------------------------------------------------------------
+
+The programs in this book were developed on the following platforms:
+
+	Symbolics Common Lisp, on 36XX's and XL1200's
+	Lucid Common Lisp on IBM RT's, IBM RS/6000's.
+
+In addition, various subsets of the code have been used on 
+
+	Franz Common Lisp, various platforms
+	Lucid Common Lisp, various platforms
+	Kyoto Common Lisp, varous platforms
+	Symbolics CLOE on 386's
+	Macintosh Common Lisp, various Apple computers
+	Allegro CL/PC, on 486's.
+
+We have taken great pains to write our code to be as portable as
+possible.  However, glitches can occur.  So far, every problem we know
+about can be solved by placing the code in its own package, rather
+than the user package.  (We recommend this in general anyway, but as
+explained in the book, we left everything in the package
+:COMMON-LISP-USER for simplicity.)
+
+Here is the list of incompatibilities that we know of, and suggestions
+for fixes.  Others will be added as they are discovered.
+
+	MACINTOSH COMMON LISP: We use RLET to bind pattern variables
+in rules.  The symbol ccl::rlet is exported into the user package,
+which thus causes an error.  You can either tell the lisp to allow the
+redefinition of RLET, or use a seperate package.
+
+	ALLEGRO CL/PC: The symbols TRUE and FALSE exported to the user
+package from an internal package as constants.  In this particular
+port of Allegro Common Lisp, this causes problems even when using TRUE
+and FALSE as field names (in the LTMS), even with a non-empty conc
+name.  You can either rename the fields or put the LTMS in a package
+other than COMMON-LISP-USER.
+
